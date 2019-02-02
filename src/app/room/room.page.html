@@ -1,9 +1,17 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Room</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="gotoPeoplePage()">
+        <ion-icon name="people"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  room content
 </ion-content>
