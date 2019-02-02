@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from "@ionic/angular";
+import { ActivatedRoute } from "@angular/router";
+import { getRoom } from '../../firebase'
 
 @Component({
   selector: 'app-people',
@@ -8,11 +10,24 @@ import { NavController } from "@ionic/angular";
 })
 export class PeoplePage implements OnInit {
 
-  constructor(private navCtrl: NavController) {
+  room: String
+  people = []
+
+  constructor(private navCtrl: NavController, private route: ActivatedRoute) {
     
   }
 
   ngOnInit() {
+    this.room = this.route.snapshot.paramMap.get('id')
+    getRoom(this.room).on('value', snapshot=> {
+      if(snapshot.val() != null) {
+        let roomdata = snapshot.val()
+        Object.keys(roomdata).map(key => {
+          this.people.push(key)
+        })
+        console.log(this.people)
+      }
+    })
   }
 
   gotoNewPersonPage() {
@@ -20,7 +35,7 @@ export class PeoplePage implements OnInit {
   }
 
   closeModal() {
-    this.navCtrl.navigateBack('/room')
+    this.navCtrl.navigateBack('/room/' + this.room)
   }
 
 }

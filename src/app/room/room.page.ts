@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { NavController, ModalController } from "@ionic/angular";
 import { PeoplePage } from "src/app/people/people.page";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-room',
@@ -9,13 +11,16 @@ import { PeoplePage } from "src/app/people/people.page";
 })
 export class RoomPage implements OnInit {
 
-  constructor(private navCtrl: NavController) {
+  room = ""
+
+  constructor(private navCtrl: NavController, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.room = this.route.snapshot.paramMap.get('id')
   }
 
   gotoPeoplePage() {
-    this.navCtrl.navigateForward('/people')
+    this.navCtrl.navigateForward('/room/' + this.room + "/people")
   }
 }

@@ -2,14 +2,15 @@
   "name": "synchronus",
   "version": "0.0.1",
   "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "homepage": "https://kev-inc.github.io/synchronus",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "gh-pages -d www"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,8 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.0.0",
     "core-js": "^2.5.4",
+    "firebase": "^5.8.2",
+    "gh-pages": "^2.0.1",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"
   },

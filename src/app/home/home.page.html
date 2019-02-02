@@ -17,32 +17,38 @@
       </ion-col>
     </ion-row>
 
-    <ion-row padding>
-      <ion-col sizeLg="4" sizeMd="6" sizeSm="12" offsetLg="4" offsetMd="3">
-        <ion-item>
-          <ion-label position="floating">Room name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      </ion-col>
-
-    </ion-row>
-
     <ion-row>
       <ion-col sizeLg="4" sizeMd="6" sizeSm="12" offsetLg="4" offsetMd="3">
+        <ion-card>
+          <ion-item margin>
+            <ion-label position="stacked">Room name</ion-label>
+            <ion-input type="text" [(ngModel)]="room.name"></ion-input>
+          </ion-item>
 
-        <ion-button padding (click)="gotoRoomPage()" color="success" expand="block">Enter room</ion-button>
-        <ion-button padding (click)="gotoNewRoomPage()" color="primary" expand="block" fill="clear" size="small">Create new room</ion-button>
+          <ion-item margin>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="room.password"></ion-input>
+          </ion-item>
+
+          <div margin text-center style="height: 24px">
+            <ion-spinner *ngIf="isSpinnerVisible"></ion-spinner>
+            <ion-text color="danger">
+              {{errorText}}
+            </ion-text>
+          </div>
+
+          <ion-button margin (click)="gotoRoomPage()" color="success" expand="block">Enter room</ion-button>
+          <ion-button margin (click)="gotoNewRoomPage()" color="primary" expand="block" fill="clear" size="small">Create new room</ion-button>
+
+          
+
+          <div margin text-center>
+            {{roomsCreated}} rooms created
+          </div>
+
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
-
 
 </ion-content>

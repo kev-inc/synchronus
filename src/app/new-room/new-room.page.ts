@@ -8,6 +8,13 @@ import { NavController } from "@ionic/angular";
 })
 export class NewRoomPage implements OnInit {
 
+  newRoom = {
+    name: "",
+    password: ""
+  }
+
+  confirmPassword = ""
+
   constructor(private navCtrl: NavController) {}
 
   ngOnInit() {
@@ -15,6 +22,15 @@ export class NewRoomPage implements OnInit {
 
   closeModal() {
     this.navCtrl.navigateBack('/home')
+  }
+
+  createNewRoom() {
+    if(this.newRoom.password == this.confirmPassword) {
+      alert('New room created')
+      this.navCtrl.navigateBack('/home')
+    } else {
+      alert('Passwords are not the same')
+    }
   }
 
 }

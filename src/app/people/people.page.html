@@ -22,21 +22,11 @@
   </ion-grid>
 
   <ion-list>
-    <ion-item>
-      <ion-label>Person 1</ion-label>
+    <ion-item *ngFor="let person of people">
+      <ion-label>{{person}}</ion-label>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Person 2</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Person 3</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Person 4</ion-label>
-    </ion-item>
+    
   </ion-list>
 
 

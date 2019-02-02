@@ -11,4 +11,36 @@
 
 <ion-content padding>
 
+  <ion-grid>
+
+    <ion-row>
+      <ion-col sizeLg="4" sizeMd="6" sizeSm="12" offsetLg="4" offsetMd="3">
+        <ion-card>
+          <ion-item margin>
+            <ion-label position="stacked">Room name</ion-label>
+            <ion-input type="text" [(ngModel)]="newRoom.name"></ion-input>
+          </ion-item>
+
+          <ion-item margin>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="newRoom.password"></ion-input>
+          </ion-item>
+
+          <ion-item margin>
+            <ion-label position="stacked">Confirm password</ion-label>
+            <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+          </ion-item>
+
+            <ion-button margin color="success" expand="block" (click)="createNewRoom()">Create new room</ion-button>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!--<ion-row>
+      <ion-col sizeLg="4" sizeMd="6" sizeSm="12" offsetLg="4" offsetMd="3">
+      </ion-col>
+    </ion-row>-->
+  </ion-grid>
+
 </ion-content>
