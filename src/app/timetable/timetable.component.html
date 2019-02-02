@@ -1,109 +1,57 @@
 <table>
   <tr>
     <th></th>
-    <th>0800</th>
-    <th>0900</th>
-    <th>1000</th>
-    <th>1100</th>
-    <th>1200</th>
-    <th>1300</th>
-    <th>1400</th>
-    <th>1500</th>
-    <th>1600</th>
-    <th>1700</th>
-    <th>1800</th>
-    <th>1900</th>
-    <th>2000</th>
-    <th>2100</th>
+    <th width="200">0800</th>
+    <th width="200">0900</th>
+    <th width="200">1000</th>
+    <th width="200">1100</th>
+    <th width="200">1200</th>
+    <th width="200">1300</th>
+    <th width="200">1400</th>
+    <th width="200">1500</th>
+    <th width="200">1600</th>
+    <th width="200">1700</th>
+    <th width="200">1800</th>
+    <th width="200">1900</th>
+    <th width="200">2000</th>
+    <th width="200">2100</th>
   </tr>
 
-  <tr>
-    <th>MON</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
+  <tbody *ngFor="let day of days">
+    <tr>
+      <th rowSpan={{day.rows}}>{{day.day}}</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
 
-  <tr>
-    <th>TUE</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
+    <tr *ngFor="let row of buildArray(day.rows-1)">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
 
-  <tr>
-    <th>WED</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
-
-  <tr>
-    <th>THU</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
-
-  <tr>
-    <th>FRI</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
 </table>
