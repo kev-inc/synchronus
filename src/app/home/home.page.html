@@ -9,9 +9,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+<ion-content padding="true">
+  <div>
+    <img src="/assets/icon.png" style="display: block; width: 30%; height: auto; margin-left: auto; margin-right: auto">
+  </div>
+
+  <div padding>
+    <ion-item>
+      <ion-label position="floating">Room name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </div>
+
+
+
+  <ion-button padding color="success" expand="block">Enter room</ion-button>
+  <ion-button padding href="/NewRoomPage" routerDirection="forward" color="primary" expand="block" fill="clear" size="small">Create new room</ion-button>
+
+</ion-content>
+
+<!-- <ion-content>
+    <ion-card padding="true" class="welcome-card">
+      <ion-img src="/assets/icon.png"></ion-img>
       <ion-card-header>
         <ion-card-subtitle>Get Started</ion-card-subtitle>
         <ion-card-title>Welcome to Ionic</ion-card-title>
@@ -41,4 +65,4 @@
         <ion-label>Theme Your App</ion-label>
       </ion-item>
     </ion-list>
-</ion-content>
+</ion-content> -->
