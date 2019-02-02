@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTimetablePage implements OnInit {
 
+  myTimetable = {
+    name: "",
+    url: ""
+  }
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  save() {
+    alert("saved")
   }
 
 }

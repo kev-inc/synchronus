@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-people',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeoplePage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {
+    
+  }
 
   ngOnInit() {
+  }
+
+  gotoNewPersonPage() {
+    this.navCtrl.navigateForward('/new-person')
+  }
+
+  closeModal() {
+    this.navCtrl.navigateBack('/room')
   }
 
 }

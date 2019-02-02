@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import {NewRoomPage} from '../new-room/new-room.page'
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-home',
@@ -8,11 +7,15 @@ import {NewRoomPage} from '../new-room/new-room.page'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private navCtrl: NavController){
-
+  constructor(private navCtrl: NavController) {
+    
   }
 
-  gotoCreateRoom() {
-    this.navCtrl.navigateForward('/NewRoomPage')
+  gotoNewRoomPage() {
+    this.navCtrl.navigateForward('/new-room')
+  }
+
+  gotoRoomPage() {
+    this.navCtrl.navigateForward('/room')
   }
 }
