@@ -1,5 +1,6 @@
-const firebase = require('firebase/app')
-require('firebase/database')
+// import firebase = require('firebase/app')
+import * as firebase from 'firebase' 
+// require('firebase/database')
 import { environment } from './environments/environment'
 
 firebase.initializeApp(environment.firebase)
