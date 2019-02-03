@@ -31,7 +31,14 @@
             <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
           </ion-item>
 
-            <ion-button margin color="success" expand="block" (click)="createNewRoom()">Create new room</ion-button>
+          <div margin text-center style="height: 24px">
+            <ion-spinner *ngIf="isSpinnerVisible"></ion-spinner>
+            <ion-text color="danger">
+              {{errorText}}
+            </ion-text>
+          </div>
+
+          <ion-button margin color="success" expand="block" (click)="createNewRoom()">Create new room</ion-button>
 
         </ion-card>
       </ion-col>

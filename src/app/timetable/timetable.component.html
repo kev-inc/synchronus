@@ -1,56 +1,49 @@
 <table>
   <tr>
     <th></th>
-    <th width="200">0800</th>
-    <th width="200">0900</th>
-    <th width="200">1000</th>
-    <th width="200">1100</th>
-    <th width="200">1200</th>
-    <th width="200">1300</th>
-    <th width="200">1400</th>
-    <th width="200">1500</th>
-    <th width="200">1600</th>
-    <th width="200">1700</th>
-    <th width="200">1800</th>
-    <th width="200">1900</th>
-    <th width="200">2000</th>
-    <th width="200">2100</th>
+    <th class="time">0800</th>
+    <th class="time">0900</th>
+    <th class="time">1000</th>
+    <th class="time">1100</th>
+    <th class="time">1200</th>
+    <th class="time">1300</th>
+    <th class="time">1400</th>
+    <th class="time">1500</th>
+    <th class="time">1600</th>
+    <th class="time">1700</th>
+    <th class="time">1800</th>
+    <th class="time">1900</th>
+    <th class="time">2000</th>
+    <th class="time">2100</th>
+  </tr>
+  <tr>
+    <td colSpan="15" height="8px" class="divider"></td>
   </tr>
 
-  <tbody *ngFor="let day of days">
+  <tbody *ngFor="let day of days; let i = index">
     <tr>
-      <th rowSpan={{day.rows}}>{{day.day}}</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th rowSpan={{day.rows}} class="days">{{day.day}}</th>
+      <ng-container *ngFor="let time of times">
+        <td *ngIf="isTile(i, time, 0)" [colSpan]="tileLength(i, time, 0)">
+          <div class="card" [style.background-color]="getColor(i, time, 0)">
+            {{findTile(i, time, 0)}}
+          </div>
+        </td>
+      </ng-container>
     </tr>
 
-    <tr *ngFor="let row of buildArray(day.rows-1)">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let row of buildArray(day.rows-1); let j = index">
+      <ng-container *ngFor="let time of times">
+        <td *ngIf="isTile(i, time, j+1)" [colSpan]="tileLength(i, time, j+1)">
+          <div class="card" [style.background-color]="getColor(i, time, j+1)">
+            {{findTile(i, time, j+1)}}
+          </div>
+        </td>
+      </ng-container>
+    </tr>
+
+    <tr>
+      <td colSpan="15" height="8px" class="divider"></td>
     </tr>
   </tbody>
 

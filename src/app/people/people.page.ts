@@ -12,6 +12,7 @@ export class PeoplePage implements OnInit {
 
   room: String
   people = []
+  isSpinnerVisible = true
 
   constructor(private navCtrl: NavController, private route: ActivatedRoute) {
     
@@ -25,13 +26,13 @@ export class PeoplePage implements OnInit {
         Object.keys(roomdata).map(key => {
           this.people.push(key)
         })
-        console.log(this.people)
       }
+      this.isSpinnerVisible = false
     })
   }
 
   gotoNewPersonPage() {
-    this.navCtrl.navigateForward('/new-person')
+    this.navCtrl.navigateForward('/room/' + this.room + '/people/new')
   }
 
   closeModal() {
