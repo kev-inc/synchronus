@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{tile.module_code}}</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <h4>{{person}}'s {{tile.type}}</h4>
+        <h4>{{tile.day}}</h4>
+        <h4>{{tile.start}} - {{tile.end}}</h4>
+        <h4>{{tile.venue}}</h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

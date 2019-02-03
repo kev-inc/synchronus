@@ -1,5 +1,6 @@
 // import firebase = require('firebase/app')
-import * as firebase from 'firebase' 
+import * as firebase from 'firebase/app'
+import 'firebase/database' 
 // require('firebase/database')
 import { environment } from './environments/environment'
 
@@ -43,4 +44,8 @@ export function createRoom(roomId, roomPassword) {
 
 export function getRoomCount() {
     return firebase.database().ref("passwords")
+}
+
+export function findTile(room, person, key) {
+    return firebase.database().ref("rooms/" + room + "/" + person + "/" + key)
 }

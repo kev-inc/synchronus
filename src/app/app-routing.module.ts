@@ -16,7 +16,9 @@ const routes: Routes = [
   { path: 'new-room', loadChildren: './new-room/new-room.module#NewRoomPageModule' },
   { path: 'room/:id', loadChildren: './room/room.module#RoomPageModule' },
   { path: 'room/:id/people', loadChildren: './people/people.module#PeoplePageModule' },
-  { path: 'room/:id/people/new', loadChildren: './new-person/new-person.module#NewPersonPageModule' }
+  { path: 'room/:id/people/new', loadChildren: './new-person/new-person.module#NewPersonPageModule' },
+  { path: 'room/:id/details/:person/:key', loadChildren: './tile-detail/tile-detail.module#TileDetailPageModule' }
+
 ];
 
 @NgModule({

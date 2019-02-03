@@ -1,7 +1,7 @@
 {
   "name": "synchronus",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "kev.inc",
   "homepage": "https://kev-inc.github.io/synchronus",
   "scripts": {
     "ng": "ng",
@@ -57,5 +57,5 @@
     "tslint": "~5.12.0",
     "typescript": "~3.1.6"
   },
-  "description": "An Ionic project"
+  "description": "Online scheduling app for NUS Students"
 }

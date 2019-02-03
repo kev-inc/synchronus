@@ -25,8 +25,8 @@
       <th rowSpan={{day.rows}} class="days">{{day.day}}</th>
       <ng-container *ngFor="let time of times">
         <td *ngIf="isTile(i, time, 0)" [colSpan]="tileLength(i, time, 0)">
-          <div class="card" [style.background-color]="getColor(i, time, 0)">
-            {{findTile(i, time, 0)}}
+          <div class="card" [style.background-color]="getColor(i, time, 0)" (click)="tileClicked(findTile(i,time,0))">
+            {{findTile(i, time, 0).person}}            
           </div>
         </td>
       </ng-container>
@@ -35,8 +35,8 @@
     <tr *ngFor="let row of buildArray(day.rows-1); let j = index">
       <ng-container *ngFor="let time of times">
         <td *ngIf="isTile(i, time, j+1)" [colSpan]="tileLength(i, time, j+1)">
-          <div class="card" [style.background-color]="getColor(i, time, j+1)">
-            {{findTile(i, time, j+1)}}
+          <div class="card" [style.background-color]="getColor(i, time, j+1)" (click)="tileClicked(findTile(i,time,j+1))">
+            {{findTile(i, time, j+1).person}}
           </div>
         </td>
       </ng-container>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from "@ionic/angular";
 import { ActivatedRoute } from "@angular/router";
-import { getRoom } from '../../firebase'
+import { getRoom, deletePerson } from '../../firebase'
 
 @Component({
   selector: 'app-people',
@@ -23,6 +23,7 @@ export class PeoplePage implements OnInit {
     getRoom(this.room).on('value', snapshot=> {
       if(snapshot.val() != null) {
         let roomdata = snapshot.val()
+        this.people = []
         Object.keys(roomdata).map(key => {
           this.people.push(key)
         })
@@ -37,6 +38,10 @@ export class PeoplePage implements OnInit {
 
   closeModal() {
     this.navCtrl.navigateBack('/room/' + this.room)
+  }
+
+  deletePerson(person) {
+    deletePerson(this.room, person)
   }
 
 }

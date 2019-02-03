@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RoomPage } from './room.page';
-import { TimetableComponent } from "src/app/timetable/timetable.component";
+import { TileDetailPage } from './tile-detail.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: RoomPage
+    component: TileDetailPage
   }
 ];
 
@@ -21,9 +20,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
-    
   ],
-  entryComponents:[],
-  declarations: [RoomPage, TimetableComponent]
+  declarations: [TileDetailPage]
 })
-export class RoomPageModule {}
+export class TileDetailPageModule {}

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getRoom } from '../../firebase'
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-timetable',
@@ -34,30 +35,30 @@ export class TimetableComponent implements OnInit {
   ]
 
   times = [
-    "800", 
-    "900", 
-    "1000", 
-    "1100", 
-    "1200", 
-    "1300", 
+    "800",
+    "900",
+    "1000",
+    "1100",
+    "1200",
+    "1300",
     "1400",
-    "1500", 
-    "1600", 
-    "1700", 
-    "1800", 
-    "1900", 
-    "2000", 
+    "1500",
+    "1600",
+    "1700",
+    "1800",
+    "1900",
+    "2000",
     "2100"
   ]
 
   colors = [
-    "#ef5350", "#7e57c2","#039be5","#43a047","#ef6c00","#757575",
-    "#ec407a", "#5c6bc0","#0097a7","#689f38","#ff5722","#78909c",
-    "#ab47bc", "#42a5f5","#26a69a","#827717","#a1887f"    
+    "#ef5350", "#7e57c2", "#039be5", "#43a047", "#ef6c00", "#757575",
+    "#ec407a", "#5c6bc0", "#0097a7", "#689f38", "#ff5722", "#78909c",
+    "#ab47bc", "#42a5f5", "#26a69a", "#827717", "#a1887f"
   ]
 
   people = []
-  
+
   table: {}[] = [
     {
       800: [],
@@ -137,11 +138,90 @@ export class TimetableComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
     getRoom(this.room).on('value', snapshot => {
       if (snapshot.val() != null) {
+        this.people = []
+        this.table = [
+          {
+            800: [],
+            900: [],
+            1000: [],
+            1100: [],
+            1200: [],
+            1300: [],
+            1400: [],
+            1500: [],
+            1600: [],
+            1700: [],
+            1800: [],
+            1900: [],
+            2000: [],
+            2100: []
+          }, {
+            800: [],
+            900: [],
+            1000: [],
+            1100: [],
+            1200: [],
+            1300: [],
+            1400: [],
+            1500: [],
+            1600: [],
+            1700: [],
+            1800: [],
+            1900: [],
+            2000: [],
+            2100: []
+          }, {
+            800: [],
+            900: [],
+            1000: [],
+            1100: [],
+            1200: [],
+            1300: [],
+            1400: [],
+            1500: [],
+            1600: [],
+            1700: [],
+            1800: [],
+            1900: [],
+            2000: [],
+            2100: []
+          }, {
+            800: [],
+            900: [],
+            1000: [],
+            1100: [],
+            1200: [],
+            1300: [],
+            1400: [],
+            1500: [],
+            1600: [],
+            1700: [],
+            1800: [],
+            1900: [],
+            2000: [],
+            2100: []
+          }, {
+            800: [],
+            900: [],
+            1000: [],
+            1100: [],
+            1200: [],
+            1300: [],
+            1400: [],
+            1500: [],
+            1600: [],
+            1700: [],
+            1800: [],
+            1900: [],
+            2000: [],
+            2100: []
+          }
+        ]
         let data = snapshot.val()
         console.log(data)
         Object.keys(data).forEach(person => {
@@ -216,18 +296,18 @@ export class TimetableComponent implements OnInit {
         })
         console.log(this.table)
         this.calculateRows()
-        this.findTile(0,"800", 0)
+        this.findTile(0, "800", 0)
       }
     })
   }
 
   getColor(day, time, row) {
     let t = this.table[day][time].filter(tile => tile.row == row)
-    if(t.length != 0) {
+    if (t.length != 0) {
       let person = t[0].person
       let pos = this.people.indexOf(person)
       return this.colors[pos]
-    } 
+    }
     return ""
   }
 
@@ -235,7 +315,7 @@ export class TimetableComponent implements OnInit {
     this.table.map((day, index) => {
       let row = 1
       Object.keys(day).forEach(time => {
-        if(this.table[index][time].length > row) {
+        if (this.table[index][time].length > row) {
           row = this.table[index][time].length
         }
       })
@@ -249,33 +329,33 @@ export class TimetableComponent implements OnInit {
 
   isTile(day, time, row) {
     let t = this.table[day][time].filter(tile => tile.row == row)
-    if(t.length == 0) {
+    if (t.length == 0) {
       return true
     } else {
-      if(t[0].start == time) {
+      if (t[0].start == time) {
         return true
       } else {
         return false
       }
-    } 
+    }
   }
 
   isButton(day, time, row) {
     let t = this.table[day][time].filter(tile => tile.row == row)
-    if(t.length == 0) {
+    if (t.length == 0) {
       return false
     } else {
-      if(t[0].start == time) {
+      if (t[0].start == time) {
         return true
       } else {
         return false
       }
-    } 
+    }
   }
 
   tileLength(day, time, row) {
     let t = this.table[day][time].filter(tile => tile.row == row)
-    if(t.length != 0) {
+    if (t.length != 0) {
       return (t[0].end - t[0].start) / 100
     }
     return "1"
@@ -283,10 +363,14 @@ export class TimetableComponent implements OnInit {
 
   findTile(day, time, row) {
     let t = this.table[day][time].filter(tile => tile.row == row)
-    if(t.length != 0) {
-      return t[0].person
+    if (t.length != 0) {
+      return t[0]
     }
     return ""
+  }
+
+  tileClicked(tile) {
+    this.navCtrl.navigateForward('/room/' + this.room + '/details/' + tile.person + '/' + tile.key)
   }
 
 }
