@@ -1,109 +1,50 @@
 <table>
   <tr>
     <th></th>
-    <th>0800</th>
-    <th>0900</th>
-    <th>1000</th>
-    <th>1100</th>
-    <th>1200</th>
-    <th>1300</th>
-    <th>1400</th>
-    <th>1500</th>
-    <th>1600</th>
-    <th>1700</th>
-    <th>1800</th>
-    <th>1900</th>
-    <th>2000</th>
-    <th>2100</th>
+    <th class="time">0800</th>
+    <th class="time">0900</th>
+    <th class="time">1000</th>
+    <th class="time">1100</th>
+    <th class="time">1200</th>
+    <th class="time">1300</th>
+    <th class="time">1400</th>
+    <th class="time">1500</th>
+    <th class="time">1600</th>
+    <th class="time">1700</th>
+    <th class="time">1800</th>
+    <th class="time">1900</th>
+    <th class="time">2000</th>
+    <th class="time">2100</th>
+  </tr>
+  <tr>
+    <td colSpan="15" height="8px" class="divider"></td>
   </tr>
 
-  <tr>
-    <th>MON</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
+  <tbody *ngFor="let day of days; let i = index">
+    <tr>
+      <th rowSpan={{day.rows}} class="days">{{day.day}}</th>
+      <ng-container *ngFor="let time of times">
+        <td *ngIf="isTile(i, time, 0)" [colSpan]="tileLength(i, time, 0)">
+          <div class="card" [style.background-color]="getColor(i, time, 0)">
+            {{findTile(i, time, 0)}}
+          </div>
+        </td>
+      </ng-container>
+    </tr>
 
-  <tr>
-    <th>TUE</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
+    <tr *ngFor="let row of buildArray(day.rows-1); let j = index">
+      <ng-container *ngFor="let time of times">
+        <td *ngIf="isTile(i, time, j+1)" [colSpan]="tileLength(i, time, j+1)">
+          <div class="card" [style.background-color]="getColor(i, time, j+1)">
+            {{findTile(i, time, j+1)}}
+          </div>
+        </td>
+      </ng-container>
+    </tr>
 
-  <tr>
-    <th>WED</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
+    <tr>
+      <td colSpan="15" height="8px" class="divider"></td>
+    </tr>
+  </tbody>
 
-  <tr>
-    <th>THU</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
-
-  <tr>
-    <th>FRI</th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
 </table>

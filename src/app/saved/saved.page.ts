@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-saved',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedPage implements OnInit {
 
-  constructor() { }
+  savedRooms = []
+
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+    if(localStorage.saved != undefined) {
+      this.savedRooms = JSON.parse(localStorage.saved)
+    }
+  }
+
+  gotoRoom(room) {
+    this.navCtrl.navigateForward('/room/' + room)
   }
 
 }

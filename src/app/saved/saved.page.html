@@ -10,20 +10,8 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item>
-      <ion-label>Group 1</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Group 2</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Group 3</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Group 4</ion-label>
+    <ion-item *ngFor="let saved of savedRooms" (click)="gotoRoom(saved)">
+      <ion-label>{{saved}}</ion-label>
     </ion-item>
   </ion-list>
 

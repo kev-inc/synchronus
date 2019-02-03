@@ -5,6 +5,9 @@
     </ion-buttons>
     <ion-title>{{room}}</ion-title>
     <ion-buttons slot="secondary">
+      <ion-button (click)="saveRoom()">
+        <ion-icon name="star"></ion-icon>
+      </ion-button>
       <ion-button (click)="gotoPeoplePage()">
         <ion-icon name="people"></ion-icon>
       </ion-button>

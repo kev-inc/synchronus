@@ -4,8 +4,8 @@ import { environment } from './environments/environment'
 
 firebase.initializeApp(environment.firebase)
 
-export function addUrl(person) {
-    firebase.database().ref('urls').push(person)
+export function addUrl() {
+    return firebase.database().ref('urls')
 }
 export function getRoom(roomId) {
     return firebase.database().ref("rooms/" + roomId)
