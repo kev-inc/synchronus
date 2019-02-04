@@ -24,7 +24,7 @@ export class NewRoomPage implements OnInit {
   }
 
   closeModal() {
-    this.navCtrl.navigateBack('/home')
+    this.navCtrl.navigateBack('')
   }
 
   createNewRoom() {
