@@ -27,15 +27,10 @@
           <ion-spinner></ion-spinner>
         </div>
         <ion-list>
-          <ion-item-sliding *ngFor="let person of people">
-            <ion-item >
+          <ion-item *ngFor="let person of people">
               <ion-label>{{person}}</ion-label>
+              <ion-button float-right (click)="deletePerson(person)" fill="clear" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
             </ion-item>
-            <ion-item-options side="end">
-              <ion-item-option color="danger" (click)="deletePerson(person)">Delete</ion-item-option>
-            </ion-item-options>
-          </ion-item-sliding>
-
         </ion-list>
 
       </ion-col>

@@ -223,7 +223,6 @@ export class TimetableComponent implements OnInit {
           }
         ]
         let data = snapshot.val()
-        console.log(data)
         Object.keys(data).forEach(person => {
           this.people.push(person)
           let mods = data[person]
@@ -231,7 +230,15 @@ export class TimetableComponent implements OnInit {
           Object.keys(mods).forEach(mod => {
             let day, start, end, module_code, type, venue, week, hidden, custom, key
             start = +mods[mod].start
+            if(start % 100 != 0) {
+              let diff = start % 100
+              start -= diff
+            }
             end = +mods[mod].end
+            if(end % 100 != 0) {
+              let diff = end % 100
+              end -= diff
+            }
             module_code = mods[mod].module_code
             type = mods[mod].type.slice(0, 3).toUpperCase()
             venue = mods[mod].venue
@@ -294,7 +301,6 @@ export class TimetableComponent implements OnInit {
             }
           })
         })
-        console.log(this.table)
         this.calculateRows()
         this.findTile(0, "800", 0)
       }
